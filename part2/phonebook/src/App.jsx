@@ -11,7 +11,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [message, setMessage] = useState(null);
-  const [msgtype, setMsgtype] = useState('message'); // Added state for msgtype
+  const [msgtype, setMsgtype] = useState('message');
 
   useEffect(() => {
     phoneService.getAll().then(data => setPersons(data));
@@ -60,12 +60,12 @@ const App = () => {
             );
             setNewName('');
             setNewNumber('');
-            setMsgtype('message'); // Set to green for success
+            setMsgtype('message');
             setMessage(`Number replaced with ${newNumber} for ${newName}`);
             setTimeout(() => setMessage(null), 4000);
           })
           .catch(e => {
-            setMsgtype('alert'); // Set to red for error
+            setMsgtype('alert');
             setMessage(
               `Information of ${newName} has already been removed from the server`
             );
@@ -89,7 +89,7 @@ const App = () => {
       setPersons(persons.concat(personObject));
       setNewName('');
       setNewNumber('');
-      setMsgtype('message'); // Set to green for success
+      setMsgtype('message');
       setMessage(`Added ${newName}`);
       setTimeout(() => setMessage(null), 5000);
     });

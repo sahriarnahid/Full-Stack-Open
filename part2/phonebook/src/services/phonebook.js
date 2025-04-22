@@ -1,23 +1,21 @@
 import axios from 'axios';
 
+const baseURl = '/api/persons';
+
 const getAll = () => {
-  return axios.get('http://localhost:3001/persons').then(r => r.data);
+  return axios.get(baseURl).then(r => r.data);
 };
 
 const create = personObject => {
-  return axios
-    .post('http://localhost:3001/persons', personObject)
-    .then(r => r.data);
+  return axios.post(baseURl, personObject).then(r => r.data);
 };
 
 const update = (id, changedPerson) => {
-  return axios
-    .put(`http://localhost:3001/persons/${id}`, changedPerson)
-    .then(r => r.data);
+  return axios.put(`${baseURl}/${id}`, changedPerson).then(r => r.data);
 };
 
 const remove = id => {
-  return axios.delete(`http://localhost:3001/persons/${id}`).then(r => r.data);
+  return axios.delete(`${baseURl}/${id}`).then(r => r.data);
 };
 
 export default { getAll, create, remove, update };
