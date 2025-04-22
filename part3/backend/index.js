@@ -5,6 +5,8 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.static('dist'));
+
 app.use(express.json());
 
 let notes = [
@@ -26,7 +28,7 @@ let notes = [
 ];
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello Nahid</h1>');
+  res.send('<h1>Hello world</h1>');
 });
 
 app.get('/api/notes', (req, res) => {
