@@ -83,10 +83,10 @@ const App = () => {
     const personObject = {
       name: newName,
       number: newNumber,
-      id: String(persons.length + 1),
     };
     phoneService.create(personObject).then(() => {
-      setPersons(persons.concat(personObject));
+      phoneService.getAll().then(r => setPersons(r));
+
       setNewName('');
       setNewNumber('');
       setMsgtype('message');

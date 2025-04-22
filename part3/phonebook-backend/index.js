@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static('dist'));
+
 morgan.token('body', req => JSON.stringify(req.body));
 
 app.use(
@@ -86,7 +88,7 @@ app.post('/api/persons', (req, res) => {
 });
 
 const generateID = () => {
-  return Math.floor(Math.random() * 1000000) + 1;
+  return String(Math.floor(Math.random() * 1000000) + 1);
 };
 
 const PORT = process.env.PORT || 3001;
