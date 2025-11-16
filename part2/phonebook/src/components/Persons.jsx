@@ -1,4 +1,12 @@
-const Persons = ({ persons, searchTerm, handleDelete }) => {
+import phoneService from '../services/phonebook';
+
+const Persons = ({ persons, setPersons, searchTerm }) => {
+  const handleDelete = id => {
+    phoneService.remove(id).then(() => {
+      setPersons(persons.filter(p => p.id !== id));
+    });
+  };
+
   return (
     <ul>
       {persons
